@@ -1,0 +1,475 @@
+/* Site Navigation
+--------------------------------------------------- */
+
+.genesis-nav-menu {
+	clear: both;
+	width: 100%;
+	line-height: 1;
+
+	.menu-item {
+		display: block;
+		float: none;
+		position: relative;
+		&:after{
+			content:'';
+			position:absolute;
+			display:none;
+			right:0;
+			top: 32%;
+			height:1em;
+			width:1px;
+			background-color:#666;
+		}
+		&:nth-child(5):after,
+		&:nth-child(6):after{
+			display:none;
+		}
+		@media only screen and (min-width: $standard-screen-width) {
+			&:after{
+				display:block;
+			}
+			display: inline-block;
+			&--home {
+				position:absolute;
+				top: -30px;
+				left:auto;
+				right: 11.5em;
+				a{
+					font-size:$txt-6;
+				}
+			}
+			&--contact {
+				position:absolute;
+				top: -30px;
+				left:auto;
+				right:0;
+				a{
+					font-size:$txt-6;
+				}
+			}
+			&--faqs {
+				position:absolute;
+				top: -30px;
+				left:auto;
+				right:6.5em;
+				a{
+					font-size:$txt-6;
+				}
+			}
+		}
+		@media only screen and (min-width: 1200px) {
+			display: inline-block;
+			&--home {
+				position:absolute;
+				top: -2.5em;
+				left:auto;
+				right: 11.5em;
+				a{
+					font-size:$txt-6;
+				}
+			}
+			&--contact {
+				position:absolute;
+				top: -2.5em;
+				left:auto;
+				right:0;
+				a{
+					font-size:$txt-6;
+				}
+			}
+			&--faqs {
+				position:absolute;
+				top: -2.5em;
+				left:auto;
+				right:6.5em;
+				a{
+					font-size:$txt-6;
+				}
+			}
+		}
+
+
+	}
+
+	.menu-item:focus,
+	.menu-item:hover {
+		//position: relative;
+	}
+
+	@media only screen and (min-width: $standard-screen-width) {
+
+		.menu-item:focus .sub-menu:focus,
+		.menu-item:hover .sub-menu:hover {
+			z-index: 100;
+		}
+	}
+
+	.menu-item:focus > .sub-menu,
+	.menu-item:hover > .sub-menu {
+		display: block;
+		left: auto;
+		opacity: 1;
+	}
+
+	> .menu-bold > a {
+
+		@media only screen and (min-width: $standard-screen-width) {
+			font-weight: $font-weight--bold;
+		}
+	}
+
+	> .menu-highlight > a {
+
+		@media only screen and (min-width: $standard-screen-width) {
+			margin-left: 15px;
+			padding-right: 20px;
+			padding-left: 20px;
+			border-radius: 3px;
+			color: $menu-highlight__link--font-color;
+			background-color: $menu-highlight__link--background-color;
+			font-weight: $font-weight--semibold;
+		}
+	}
+
+	> .menu-highlight > a:focus,
+	> .menu-highlight > a:hover {
+
+		@media only screen and (min-width: $standard-screen-width) {
+			background-color: $menu-highlight__link--background-color-hover;
+		}
+	}
+
+	a {
+		display: block;
+		padding-top: 12px;
+		padding-bottom: 12px;
+		outline-offset: -1px;
+		font-family: 'Bebas Neue regular', sans-serif;
+		text-decoration: none;
+
+	}
+
+	a:focus,
+	a:hover,
+	.current-menu-item > a,
+	.sub-menu .current-menu-item > a:focus,
+	.sub-menu .current-menu-item > a:hover {
+		color: $turq;
+		text-decoration: none;
+	}
+
+	.sub-menu {
+		display: block;
+		clear: both;
+		position: static;
+		z-index: 99;
+		width: 100%;
+		margin: 0;
+		padding-left: 15px;
+		opacity: 1;
+
+		@media only screen and (min-width: $standard-screen-width) {
+			position: absolute;
+			width:315px;
+			padding-left: 0;
+			opacity: 0;
+			transition: opacity 0.4s ease-in-out;
+		}
+
+		li{
+			display:block;
+			float:none;
+			&:after{
+				display:none;
+			}
+		}
+
+		a {
+			position: relative;
+			width: 100%;
+			background-color: #fff;
+			font-size:18px;
+			word-wrap: break-word;
+			display:block;
+			line-height:1.3;
+
+			@media only screen and (min-width: $standard-screen-width) {
+				width: 100%;
+				padding-top: 15px;
+				padding-bottom: 15px;
+				border-bottom: $border-width $border-style $border-color;
+				border-top: 0;
+			}
+		}
+
+		.sub-menu {
+
+			@media only screen and (min-width: $standard-screen-width) {
+				margin: -46px 0 0 179px;
+			}
+		}
+	}
+
+	.sub-menu:focus-within {
+		opacity: 1;
+	}
+}
+
+/* Avoid flash of desktop menu on mobile devices.
+----------------------------------------------*/
+.js nav {
+	display: none;
+	position: relative;
+
+	@media only screen and (min-width: $standard-screen-width) {
+		display: block;
+	}
+}
+
+/* Responsive Menu
+--------------------------------------------- */
+
+.menu {
+
+	.menu-item:focus {
+		position: static;
+	}
+
+	.menu-item > a:focus + ul.sub-menu,
+	.menu-item.sfHover > ul.sub-menu {
+		left: auto;
+		opacity: 1;
+	}
+}
+
+.genesis-responsive-menu {
+	display: none;
+	position: relative;
+	padding-bottom: 15px;
+	padding-top: 0;
+	position:absolute;
+	top:200px;
+	left:0;
+	z-index:999;
+	background-color:$white;
+	@media only screen and (min-width: 600px) {
+		top: 120px;
+		padding-top: 30px;
+	}
+	@media only screen and (min-width: $standard-screen-width) {
+		display: block;
+		position: relative;
+		top:auto;
+		padding-bottom: 15px;
+		padding-bottom: 15px;
+		background-color:transparent;
+	}
+
+	.genesis-nav-menu {
+
+		.menu-item:hover > .sub-menu,
+		.menu-item:focus > .sub-menu {
+			display: none;
+		}
+
+		.sub-menu {
+			display: none;
+			clear: both;
+			position: static;
+			z-index: 99;
+			left: -9999px;
+			width: 100%;
+			margin: 0;
+			padding-left: 15px;
+			opacity: 1;
+
+			@media only screen and (min-width: $standard-screen-width) {
+				position: absolute;
+				width:315px;
+				padding-left: 0;
+				opacity: 0;
+				transition: opacity 0.4s ease-in-out;
+			}
+		}
+	}
+}
+
+.menu-toggle {
+	display: block;
+	visibility: visible;
+	position:absolute;
+	top: 152px;
+	left:41%;
+	overflow: hidden;
+	z-index: 1000;
+	padding: 15px 0;
+	border-width: 0;
+	color: $menu-toggle--font-color;
+	background-color: transparent;
+	line-height: $line-height--big;
+	text-align: center;
+	font-size:$txt-6;
+	&:before{
+		font-size:$txt-4 !important;
+		top:-2px !important;
+	}
+	@media only screen and (min-width: 600px) {
+		//float: right;
+		top:auto;
+		margin: 0 auto;
+		left:auto;
+		right:24px;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	@media only screen and (min-width: $standard-screen-width) {
+		display: none;
+
+	}
+
+	&:focus,
+	&:hover {
+		border-width: 0;
+		color: $menu-toggle--font-color-hover;
+		background-color: transparent;
+	}
+
+	&.activated:before {
+		content: "\f335";
+	}
+
+	.site-header &:before {
+		float: left;
+		position: relative;
+		top: 1px;
+		margin-right: 5px;
+		text-rendering: auto;
+	}
+}
+
+.sub-menu-toggle {
+	display: block;
+	visibility: visible;
+	float: right;
+	overflow: hidden;
+	position: absolute;
+	z-index: 100;
+	top: 7px;
+	line-height:1;
+	right: 0;
+	margin: 0 auto;
+	padding: 9px 10px;
+	border-width: 0;
+	color: $sub-menu-toggle--font-color;
+	background-color: transparent;
+	text-align: center;
+
+	@media only screen and (min-width: $standard-screen-width) {
+		display: none;
+	}
+
+	&:focus,
+	&:hover {
+		border-width: 0;
+		color: $sub-menu-toggle--font-color-hover;
+		background-color: transparent;
+	}
+
+	&:before {
+		display: inline-block;
+		transition: transform 0.25s ease-in-out;
+		-webkit-transform: rotate(0);
+		-ms-transform: rotate(0);
+		transform: rotate(0);
+		text-rendering: auto;
+	}
+
+	.sub-menu & {
+		padding: 12px 10px;
+	}
+
+	&.activated:before {
+		-webkit-transform: rotate(180deg);
+		-ms-transform: rotate(180deg);
+		transform: rotate(180deg);
+	}
+}
+
+/* Header Menu
+--------------------------------------------- */
+
+.nav-primary {
+	clear: left;
+	width: 100%;
+	font-family: 'Bebas Neue bold', sans-serif;
+
+	@media only screen and (min-width: $standard-screen-width) {
+		float: right;
+		clear: none;
+		width: auto;
+		padding: 55px 0 0;
+	}
+
+	.menu-item {
+		display: block;
+		float:none;
+		border-bottom:1px solid $light-grey;
+		&:last-child{
+			border-bottom:none;
+		}
+		@media only screen and (min-width: $standard-screen-width) {
+			float:left;
+			border-bottom:none;
+		}
+		.menu-item{
+			border-bottom:none;
+		}
+	}
+
+	a {
+		font-size:24px;
+		padding-right: 4%;
+    	padding-left: 4%;
+		padding-top: 16px;
+    	padding-bottom: 16px;
+		@media only screen and (min-width: $standard-screen-width) {
+			padding-right: 18px;
+    		padding-left: 18px;
+    		font-size:$txt-6;
+    		letter-spacing: 1.2px;
+		}
+		@media only screen and (min-width: 1200px) {
+			padding-right: 24px;
+    		padding-left: 24px;
+    		font-size:$txt-5;
+    		letter-spacing: 1.5px;
+    		padding-top: 12px;
+    		padding-bottom: 12px;
+		}
+
+		.sub-menu & {
+			font-size:$txt-6;
+		}
+	}
+}
+
+/* Footer Menu
+--------------------------------------------- */
+
+.nav-secondary {
+	margin-top: 10px;
+
+	.genesis-nav-menu {
+		line-height: $line-height--medium;
+	}
+
+	.menu-item {
+		display: inline-block;
+	}
+
+	a {
+		margin-right: 10px;
+		margin-left: 10px;
+		padding: 0;
+	}
+}

@@ -1,0 +1,11 @@
+#genesis_inpost_seo_box,
+#genesis_inpost_layout_box,
+#postcustom,
+#genesis_inpost_scripts_box,
+#adminmenu #menu-comments,
+#adminmenu #menu-posts,
+#adminmenu #menu-tools,
+#adminmenu #toplevel_page_wpcf7,
+.wp-editor-tools .wp-media-buttons{
+	display:none;
+}
